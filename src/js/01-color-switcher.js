@@ -4,6 +4,7 @@ const body = document.querySelector('body');
 start.textContent = 'Click me for some magic';
 stop.textContent = "I'm not important right now";
 stop.disabled = true;
+let interval = null;
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
