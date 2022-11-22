@@ -3,7 +3,7 @@ const inDelay = document.querySelector('[name="delay"]');
 const inStep = document.querySelector('[name="step"]');
 const inAmount = document.querySelector('[name="amount"]');
 const form = document.querySelector('.form');
-
+const btn = document.querySelector('button')
 function createPromise(position, delay, step) {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
@@ -28,7 +28,7 @@ function handleSubmit(event) {
       .catch(error => {
         Notiflix.Notify.failure(error);
       });
-  }
+  }btn.disabled = true
 }
 
 form.addEventListener('submit', handleSubmit);

@@ -6,12 +6,9 @@ const countDays = document.querySelector('[data-days]');
 const countHours = document.querySelector('[data-hours]');
 const countMinutes = document.querySelector('[data-minutes]');
 const countSeconds = document.querySelector('[data-seconds]');
+const input = document.querySelector('#datetime-picker');
 let timerId = null;
 startBtn.disabled = true;
-startBtn.addEventListener('click', () => {
-  if (startBtn.disabled === true)
-    startBtn.textContent = 'NO! First select date in the future';
-});
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -52,7 +49,21 @@ const convertMs = ms => {
 
   return { days, hours, minutes, seconds };
 };
+input.addEventListener('blur', () => {
+  if (timerId) {
+    clearInterval(timerId);
+    countDays.textContent = "00";
+    countHours.textContent = "00";
+    countMinutes.textContent = "00";
+    countSeconds.textContent = "00";
+  }
+});
 startBtn.addEventListener('click', () => {
+  if (startBtn.disabled === true)
+    startBtn.textContent = 'NO! First select date in the future';
+});
+startBtn.addEventListener('click', () => {
+  startBtn.disabled = true;
   timerId = setInterval(() => {
     const userTime = inputDates.selectedDates[0];
     const now = new Date().getTime();
