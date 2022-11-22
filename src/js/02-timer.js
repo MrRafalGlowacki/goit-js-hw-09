@@ -52,10 +52,10 @@ const convertMs = ms => {
 input.addEventListener('blur', () => {
   if (timerId) {
     clearInterval(timerId);
-    countDays.textContent = "00";
-    countHours.textContent = "00";
-    countMinutes.textContent = "00";
-    countSeconds.textContent = "00";
+    countDays.textContent = '00';
+    countHours.textContent = '00';
+    countMinutes.textContent = '00';
+    countSeconds.textContent = '00';
   }
 });
 startBtn.addEventListener('click', () => {
