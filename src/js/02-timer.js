@@ -9,6 +9,7 @@ const countSeconds = document.querySelector('[data-seconds]');
 const input = document.querySelector('#datetime-picker');
 let timerId = null;
 startBtn.disabled = true;
+startBtn.textContent = 'First select date in the future'
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -20,7 +21,7 @@ const options = {
         position: 'center-top',
       }),
         (startBtn.disabled = true),
-        (startBtn.textContent = 'First select date in the future');
+        (startBtn.textContent = 'NO! Date in the future needed');
     else (startBtn.disabled = false), (startBtn.textContent = 'Start');
   },
 };
@@ -58,10 +59,7 @@ input.addEventListener('blur', () => {
     countSeconds.textContent = '00';
   }
 });
-startBtn.addEventListener('click', () => {
-  if (startBtn.disabled === true)
-    startBtn.textContent = 'NO! First select date in the future';
-});
+
 startBtn.addEventListener('click', () => {
   startBtn.disabled = true;
   timerId = setInterval(() => {
